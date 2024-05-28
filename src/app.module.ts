@@ -1,10 +1,21 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
+import configuration from './configs/configs';
+import { AuthModule } from './modules/auth/auth.module';
+import { PostgresModule } from './modules/postgres/postgres.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [UserModule, AuthModule],
+  imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+      isGlobal: true,
+    }),
+    UserModule,
+    AuthModule,
+    PostgresModule,
+  ],
   controllers: [],
   providers: [],
 })
