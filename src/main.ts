@@ -1,3 +1,5 @@
+import * as process from 'node:process';
+
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
@@ -44,6 +46,7 @@ async function bootstrap() {
     console.log(
       `Swagger running on http://${appConfig.host}:${appConfig.port}/docs`,
     );
+    console.log(process.env.POSTGRES_PORT);
   });
 }
 void bootstrap();
