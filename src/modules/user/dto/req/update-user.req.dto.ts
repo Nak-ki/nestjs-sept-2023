@@ -1,5 +1,9 @@
-import { PartialType } from '@nestjs/mapped-types';
+import { PickType } from '@nestjs/swagger';
 
-import { CreateUserReqDto } from './create-user.req.dto';
+import { BaseUserReqDto } from './base-user.req.dto';
 
-export class UpdateUserReqDto extends PartialType(CreateUserReqDto) {}
+export class UpdateUserReqDto extends PickType(BaseUserReqDto, [
+  'bio',
+  'image',
+  'name',
+]) {}
