@@ -10,6 +10,7 @@ import { LoggerModule } from './modules/logger/logger.module';
 import { PostgresModule } from './modules/postgres/postgres.module';
 import { RedisModule } from './modules/redis/redis.module';
 import { RepositoryModule } from './modules/repository/repositity.module';
+import { TagModule } from './modules/tag/tag.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
@@ -25,6 +26,7 @@ import { UserModule } from './modules/user/user.module';
     AuthModule,
     RepositoryModule,
     ArticleModule,
+    TagModule,
   ],
   controllers: [],
   providers: [
